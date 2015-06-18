@@ -62,3 +62,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 - [Rails’ Insecure Defaults](http://blog.codeclimate.com/blog/2013/03/27/rails-insecure-defaults/)
 - [The Inadequate Guide to Rails Security](http://blog.honeybadger.io/ruby-security-tutorial-and-rails-security-guide/)
 - [The Matasano Crypto Challenges](http://cryptopals.com/)
+
+## Contributing
+
+Have other good practices? Know of more great tools? [Help make this guide better for everyone](https://github.com/ankane/secure_rails/issues/new).

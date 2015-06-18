@@ -50,17 +50,15 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   response.headers["Expires"] = "Sat, 01 Jan 2000 00:00:00 GMT"
   ```
 
-## Tools
-
-### Open Source
+## Open Source Tools
 
 - [Brakeman](https://github.com/presidentbeef/brakeman) is a great static analysis tool - it scans your code for vulnerabilities
 - [bundler-audit](https://github.com/rubysec/bundler-audit) checks for vulnerable versions of gems
 
-### Services
+## Services
 
 - [CodeClimate](https://codeclimate.com/) provides a hosted version of static analysis
-- [HackerOne](https://hackerone.com/) is another good resource
+- [HackerOne](https://hackerone.com/) allows you to enlist hackers to surface vulnerabilities
 
 ## Additional Reading
 

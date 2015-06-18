@@ -55,6 +55,17 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 - [Brakeman](https://github.com/presidentbeef/brakeman) is a great static analysis tool - it scans your code for vulnerabilities
 - [bundler-audit](https://github.com/rubysec/bundler-audit) checks for vulnerable versions of gems
 
+  To fix `Insecure Source URI` errors with the `github` option, add to the top of your `Gemfile`:
+
+  ```ruby
+  git_source(:github) do |repo_name|
+    repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+    "https://github.com/#{repo_name}.git"
+  end
+  ```
+
+  And run `bundle install`.
+
 ## Services
 
 - [CodeClimate](https://codeclimate.com/) provides a hosted version of static analysis

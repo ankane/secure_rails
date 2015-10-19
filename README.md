@@ -30,13 +30,6 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication
 
-- Enable secure cookies if you use Devise
-
-  ```ruby
-  # config/initializers/devise.rb
-  config.rememberable_options = {secure: true}
-  ```
-
 - Rate limit login attempts with [Rack Attack](https://github.com/kickstarter/rack-attack)
 
 - Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)

@@ -22,7 +22,10 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
   ```ruby
   config.force_ssl = true
+  config.ssl_options = {subdomains: true, preload: true}
   ```
+
+- Add your domain to the [HSTS preload list](https://hstspreload.appspot.com/)
 
 - Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted)
 

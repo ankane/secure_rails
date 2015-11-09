@@ -32,6 +32,13 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted)
 
+- Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`
+
+  ```ruby
+  config.action_controller.default_url_options = {host: "www.yoursite.com"}
+  config.action_controller.asset_host = "www.yoursite.com"
+  ```
+
 - Set `autocomplete="off"` for sensitive form fields, like credit card number
 
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication

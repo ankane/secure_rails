@@ -63,6 +63,8 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   response.headers["Expires"] = "Sat, 01 Jan 2000 00:00:00 GMT"
   ```
 
+- If you still use `attr_accessible`, [upgrade to strong_parameters](https://github.com/ankane/shorts/blob/master/Strong-Parameters.md)
+
 ## Open Source Tools
 
 - [Brakeman](https://github.com/presidentbeef/brakeman) is a great static analysis tool - it scans your code for vulnerabilities

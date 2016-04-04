@@ -81,6 +81,10 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
   And run `bundle install`.
 
+## Mailing Lists
+
+Subscribe to [ruby-security-ann](https://groups.google.com/forum/#!forum/ruby-security-ann) to get security announcements for Ruby, Rails, Rubygems, Bundler, and other Ruby ecosystem projects.
+
 ## Services
 
 - [CodeClimate](https://codeclimate.com/) provides a hosted version of static analysis

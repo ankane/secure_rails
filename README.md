@@ -16,13 +16,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
   is vulnerable to injection. [Learn about other methods](http://rails-sqli.org)
 
-- Use [SecureHeaders](https://github.com/twitter/secureheaders) - create an initializer with:
-
-  ```ruby
-  SecureHeaders::Configuration.configure do |config|
-    config.x_xss_protection = {value: 1, mode: "block"}
-  end
-  ```
+- Use [SecureHeaders](https://github.com/twitter/secureheaders)
 
 - Protect all data in transit with HTTPS - add the following to `config/environments/production.rb`
 

@@ -37,11 +37,11 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication
 
+- Notify users of email address and password changes
+
 - Rate limit login attempts with [Rack Attack](https://github.com/kickstarter/rack-attack)
 
 - Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)
-
-- Notify users of password changes and attempts to change email addresses
 
 - Ask search engines not to index pages with secret tokens in the URL
 

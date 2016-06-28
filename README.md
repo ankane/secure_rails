@@ -37,9 +37,13 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication
 
-- Notify users of email address and password changes
+- Notify users of password changes
+
+- Notify users of email address changes - send an email to both the old and new address
 
 - Rate limit login attempts with [Rack Attack](https://github.com/kickstarter/rack-attack)
+
+- Log all login attempts (successful and failed) and password reset attempts
 
 - Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)
 

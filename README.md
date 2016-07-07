@@ -35,7 +35,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Set `autocomplete="off"` for sensitive form fields, like credit card number
 
-- Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication
+- Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://github.com/ankane/shorts/blob/master/Hardening-Devise.md) if applicable)
 
 - Notify users of password changes
 

@@ -35,6 +35,12 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Set `autocomplete="off"` for sensitive form fields, like credit card number
 
+- Make sure sensitive request parameters aren’t logged
+
+  ```ruby
+  Rails.application.config.filter_parameters += [:credit_card_number]
+  ```
+
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://github.com/ankane/shorts/blob/master/Hardening-Devise.md) if applicable)
 
 - Notify users of password changes
@@ -59,6 +65,14 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
   response.headers["Pragma"] = "no-cache"
   response.headers["Expires"] = "Sat, 01 Jan 2000 00:00:00 GMT"
+  ```
+
+- Use `json_escape` when passing variables to JavaScript (or a library like [Gon](https://github.com/gazay/gon))
+
+  ```erb
+  <script>
+    var currentUser = <%= raw json_escape(current_user.to_json) %>;
+  </script>
   ```
 
 - If you still use `attr_accessible`, [upgrade to strong_parameters](https://github.com/ankane/shorts/blob/master/Strong-Parameters.md)

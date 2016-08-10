@@ -75,6 +75,8 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   </script>
   ```
 
+- [Be careful](https://product.reverb.com/2015/08/29/stay-safe-while-using-html_safe-in-rails/) with `html_safe`
+
 - If you still use `attr_accessible`, [upgrade to strong_parameters](https://github.com/ankane/shorts/blob/master/Strong-Parameters.md)
 
 ## Open Source Tools

@@ -18,7 +18,9 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Use [SecureHeaders](https://github.com/twitter/secureheaders)
 
-- Protect all data in transit with HTTPS - add the following to `config/environments/production.rb`
+- Protect all data in transit with HTTPS - you can get free SSL certificates from [Let’s Encrypt](https://letsencrypt.org/)
+
+  Add the following to `config/environments/production.rb`
 
   ```ruby
   config.force_ssl = true

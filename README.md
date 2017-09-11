@@ -26,6 +26,8 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   config.force_ssl = true
   ```
 
+- Add your domain to the [HSTS Preload List](https://hstspreload.org/)
+
 - Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted)
 
 - Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`

@@ -28,8 +28,12 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Add your domain to the [HSTS Preload List](https://hstspreload.org/)
 
+  Add the following to `config/application.rb`
+
   ```ruby
-  config.ssl_options = {hsts: {subdomains: true, preload: true}}
+  SecureHeaders::Configuration.default do |config|
+    config.hsts = "max-age=#{1.year.to_i}; includeSubdomains; preload"
+  end
   ```
 
 - Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted)

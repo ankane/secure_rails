@@ -75,7 +75,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   response.headers["Expires"] = "Sat, 01 Jan 2000 00:00:00 GMT"
   ```
 
-- Use `json_escape` when passing variables to JavaScript (or a library like [Gon](https://github.com/gazay/gon))
+- Use `json_escape` when passing variables to JavaScript, or better yet, a library like [Gon](https://github.com/gazay/gon)
 
   ```erb
   <script>

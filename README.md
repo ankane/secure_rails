@@ -32,7 +32,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   config.ssl_options = {hsts: {subdomains: true, preload: true}}
   ```
 
-- Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted)
+- Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
 
 - Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`
 
@@ -57,7 +57,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - Rate limit login attempts with [Rack Attack](https://github.com/kickstarter/rack-attack)
 
-- Log all login attempts (successful and failed) and password reset attempts
+- Log all successful and failed login attempts and password reset attempts (check out [Authtrail](https://github.com/ankane/authtrail) if you use Devise)
 
 - Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)
 

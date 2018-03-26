@@ -14,7 +14,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   User.group(params[:column])
   ```
 
-  is vulnerable to injection. [Learn about other methods](http://rails-sqli.org)
+  is vulnerable to injection. [Learn about other methods](https://rails-sqli.org)
 
 - Use [SecureHeaders](https://github.com/twitter/secureheaders)
 
@@ -67,7 +67,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   <meta name="robots" content="noindex, nofollow">
   ```
 
-- Ask the browser [not to cache pages](http://stackoverflow.com/a/748646) with sensitive information
+- Ask the browser [not to cache pages](https://stackoverflow.com/a/748646) with sensitive information
 
   ```ruby
   response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
@@ -119,9 +119,9 @@ Subscribe to [ruby-security-ann](https://groups.google.com/forum/#!forum/ruby-se
 
 ## Additional Reading
 
-- [Rails’ Insecure Defaults](http://blog.codeclimate.com/blog/2013/03/27/rails-insecure-defaults/)
-- [The Inadequate Guide to Rails Security](http://blog.honeybadger.io/ruby-security-tutorial-and-rails-security-guide/)
-- [The Matasano Crypto Challenges](http://cryptopals.com/)
+- [Rails’ Insecure Defaults](https://codeclimate.com/blog/rails-insecure-defaults/)
+- [The Inadequate Guide to Rails Security](https://blog.honeybadger.io/ruby-security-tutorial-and-rails-security-guide/)
+- [The Matasano Crypto Challenges](https://cryptopals.com/)
 
 ## Contributing
 

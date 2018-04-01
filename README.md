@@ -109,6 +109,14 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   And run `bundle install`.
 
 - [nsp](https://github.com/nodesecurity/nsp) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
+- [git-secrets](https://github.com/awslabs/git-secrets) prevents you from committing sensitive info
+
+  ```ruby
+  brew install git-secrets
+  git secrets --register-aws --global
+  git secrets --install
+  git secrets --scan
+  ```
 
 ## Mailing Lists
 

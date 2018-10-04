@@ -108,7 +108,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
   And run `bundle install`.
 
-- [nsp](https://github.com/nodesecurity/nsp) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
+- [npm audit](https://docs.npmjs.com/getting-started/running-a-security-audit) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
 - [git-secrets](https://github.com/awslabs/git-secrets) prevents you from committing sensitive info
 
   ```ruby

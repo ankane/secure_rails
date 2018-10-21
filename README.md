@@ -49,7 +49,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
   Rails.application.config.filter_parameters += [:credit_card_number]
   ```
 
-- Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://github.com/ankane/shorts/blob/master/Hardening-Devise.md) if applicable)
+- Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://ankane.org/hardening-devise) if applicable)
 
 - Notify users of password changes
 
@@ -85,7 +85,7 @@ Start with the [Rails Security Guide](http://guides.rubyonrails.org/security.htm
 
 - [Be careful](https://product.reverb.com/2015/08/29/stay-safe-while-using-html_safe-in-rails/) with `html_safe`
 
-- If you still use `attr_accessible`, [upgrade to strong_parameters](https://github.com/ankane/shorts/blob/master/Strong-Parameters.md)
+- If you still use `attr_accessible`, [upgrade to strong_parameters](https://ankane.org/strong-parameters)
 
 ## Open Source Tools
 

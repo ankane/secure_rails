@@ -124,6 +124,7 @@ Subscribe to [ruby-security-ann](https://groups.google.com/forum/#!forum/ruby-se
 
 ## Services
 
+- [Observatory](https://observatory.mozilla.org) scans your site for best practices
 - [Hakiri](https://hakiri.io/) monitors for dependency and code vulnerabilities
 - [CodeClimate](https://codeclimate.com/) provides a hosted version of static analysis
 - [HackerOne](https://hackerone.com/) allows you to enlist hackers to surface vulnerabilities

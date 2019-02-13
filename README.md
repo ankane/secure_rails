@@ -85,6 +85,8 @@ Start with the [Rails Security Guide](https://guides.rubyonrails.org/security.ht
 
 - [Be careful](https://product.reverb.com/2015/08/29/stay-safe-while-using-html_safe-in-rails/) with `html_safe`
 
+- Don’t use assets from a public CDN, as this creates unnecessary availability and security risk
+
 - If you still use `attr_accessible`, [upgrade to strong_parameters](https://ankane.org/strong-parameters)
 
 ## Open Source Tools

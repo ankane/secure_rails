@@ -32,7 +32,7 @@ Start with the [Rails Security Guide](https://guides.rubyonrails.org/security.ht
   config.ssl_options = {hsts: {subdomains: true, preload: true, expires: 1.year}}
   ```
 
-- Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
+- Protect sensitive data at rest with [application-level encryption](https://ankane.org/sensitive-data-rails)
 
 - Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`
 
@@ -86,8 +86,6 @@ Start with the [Rails Security Guide](https://guides.rubyonrails.org/security.ht
 - [Be careful](https://product.reverb.com/2015/08/29/stay-safe-while-using-html_safe-in-rails/) with `html_safe`
 
 - Don’t use assets from a public CDN, as this creates unnecessary availability and security risk
-
-- If you still use `attr_accessible`, [upgrade to strong_parameters](https://ankane.org/strong-parameters)
 
 ## Open Source Tools
 

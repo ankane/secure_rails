@@ -4,6 +4,8 @@ Everyone writing code must be responsible for security. :lock:
 
 Start with the [Rails Security Guide](https://guides.rubyonrails.org/security.html) to see how Rails protects you.
 
+Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securing sensitive data.
+
 ## Best Practices
 
 - Keep secret tokens out of your code - `ENV` variables are a good practice
@@ -32,7 +34,9 @@ Start with the [Rails Security Guide](https://guides.rubyonrails.org/security.ht
   config.ssl_options = {hsts: {subdomains: true, preload: true, expires: 1.year}}
   ```
 
-- Protect sensitive data at rest with [application-level encryption](https://ankane.org/sensitive-data-rails)
+- Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
+
+- Protect sensitive files with a library like [Lockbox](https://github.com/ankane/lockbox)
 
 - Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`
 

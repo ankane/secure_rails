@@ -34,7 +34,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   config.ssl_options = {hsts: {subdomains: true, preload: true, expires: 1.year}}
   ```
 
-- Protect sensitive data at rest with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
+- Protect sensitive database fields with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
 
 - Protect sensitive files with a library like [Lockbox](https://github.com/ankane/lockbox)
 

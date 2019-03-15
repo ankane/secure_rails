@@ -91,6 +91,8 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
 - Don’t use assets from a public CDN, as this creates unnecessary availability and security risk
 
+  Use `integrity: true, crossorigin: "anonymous"` on `javascript_include_tag` and `stylesheet_link_tag` for assets behind CDN ([Sprockets 3.x supports this](https://github.com/rails/sprockets-rails/blob/bbfcefda3240d924260e3530f896be94cdf23034/README.md#sri-support), and see [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) & [Crossorigin attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes))
+
 ## Open Source Tools
 
 - [Brakeman](https://github.com/presidentbeef/brakeman) is a great static analysis tool - it scans your code for vulnerabilities

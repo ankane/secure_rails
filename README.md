@@ -35,7 +35,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   config.action_controller.asset_host = "www.yoursite.com"
   ```
 
-  **Why:** An attacker can pass a bad host header like `evilsite.com`. If your app uses caching, this bad host may be cached and served to other users (this can happen with `*_url` helpers).
+  **Why:** An attacker can pass a bad host header. If your app uses caching, this bad host may be cached and served to other users (this can happen with `*_url` helpers).
 
 ### Data in Transit
 

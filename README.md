@@ -8,7 +8,13 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
 ## Best Practices
 
+### Secrets
+
 - Keep secret tokens out of your code - `ENV` variables are a good practice
+
+  **Why:** You don’t want your version control host, CI provider, or any other service with access to your code to have access to your secrets. If one of these services is compromised, or a single developer’s account on one of these services is compromised, you don’t want to lose your secrets.
+
+### SQL Injection
 
 - Even with ActiveRecord, SQL injection is still possible if misused
 
@@ -18,7 +24,20 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   is vulnerable to injection. [Learn about other methods](https://rails-sqli.org)
 
-- Use [SecureHeaders](https://github.com/twitter/secureheaders)
+  **Why:** [This](https://guides.rubyonrails.org/security.html#sql-injection) explains it well
+
+### Host Header Injection
+
+- Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`
+
+  ```ruby
+  config.action_controller.default_url_options = {host: "www.yoursite.com"}
+  config.action_controller.asset_host = "www.yoursite.com"
+  ```
+
+  **Why:** An attacker can pass a bad host header, which your app may render in views if you use `*_url` helpers. If you use caching, this bad host value may be cached and served to other users.
+
+### Data in Transit
 
 - Protect all data in transit with HTTPS - you can get free SSL certificates from [Let’s Encrypt](https://letsencrypt.org/)
 
@@ -28,24 +47,25 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   config.force_ssl = true
   ```
 
+  **Why:** To [protect your users](https://www.troyhunt.com/heres-why-your-static-website-needs-https/) on an untrusted network
+
 - Add your domain to the [HSTS Preload List](https://hstspreload.org/)
 
   ```ruby
   config.ssl_options = {hsts: {subdomains: true, preload: true, expires: 1.year}}
   ```
 
-- Protect sensitive database fields with a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
+  **Why:** If someone visits your website over HTTP, even if you have an HTTPS redirect, an attacker can perform a middleperson attack. [sslstrip](https://avicoder.me/2016/02/22/SSLstrip-for-newbies/) is a popular tool for this. The preload list ships with the browser and instructs it to always use HTTPS for specific domains.
 
-- Protect sensitive files with a library like [Lockbox](https://github.com/ankane/lockbox)
+### Data at Rest
 
-- Prevent [host header injection](http://carlos.bueno.org/2008/06/host-header-injection.html) - add the following to `config/environments/production.rb`
+- Protect sensitive database fields with application-level encryption - use a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
 
-  ```ruby
-  config.action_controller.default_url_options = {host: "www.yoursite.com"}
-  config.action_controller.asset_host = "www.yoursite.com"
-  ```
+  **Why:** This protects sensitive data if the database or a database backup is compromised
 
-- Set `autocomplete="off"` for sensitive form fields, like credit card number
+- Protect sensitive files with application-level encryption - use a library like [Lockbox](https://github.com/ankane/lockbox)
+
+  **Why:** This protects sensitive data if file storage is compromised, or if someone accidentally makes an S3 bucket public
 
 - Make sure sensitive request parameters aren’t logged
 
@@ -53,23 +73,39 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   Rails.application.config.filter_parameters += [:credit_card_number]
   ```
 
+  **Why:** You don’t want sensitive data in your log files if they are compromised
+
+### Auth
+
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://ankane.org/hardening-devise) if applicable)
+
+  **Why:** Secure authentication is hard. Use a library that’s battle-tested. Don’t roll your own.
 
 - Notify users of password changes
 
-- Notify users of email address changes - send an email to both the old and new address
+  **Why:** So users are aware if someone tries to hijack their account
+
+- Notify users of email address changes - send an email to the old address
+
+  **Why:** So users can’t silently hijack the account by changing the email, then the password
 
 - Rate limit login attempts with [Rack Attack](https://github.com/kickstarter/rack-attack)
 
+  **Why:** To slow down credential stuffing attacks
+
 - Log all successful and failed login attempts and password reset attempts (check out [Authtrail](https://github.com/ankane/authtrail) if you use Devise)
+
+  **Why:** So you have an audit trail when accounts are compromised. You can also use it to take action.
 
 - Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)
 
-- Ask search engines not to index pages with secret tokens in the URL
+  **Why:** To prevent users from accessing unauthorized data
 
-  ```html
-  <meta name="robots" content="noindex, nofollow">
-  ```
+### Browser Caching
+
+- Set `autocomplete="off"` for sensitive form fields, like credit card number
+
+  **Why:** So other users of the browser can’t access this saved information
 
 - Ask the browser [not to cache pages](https://stackoverflow.com/a/748646) with sensitive information
 
@@ -79,6 +115,20 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   response.headers["Expires"] = "Sat, 01 Jan 2000 00:00:00 GMT"
   ```
 
+  **Why:** So other users of the browser can’t click the back button and view sensitive information
+
+### Data Leakage
+
+- Ask search engines not to index pages with secret tokens in the URL
+
+  ```html
+  <meta name="robots" content="noindex, nofollow">
+  ```
+
+  **Why:** So search engines don’t index (and therefore expose) the tokens
+
+### Cross-Site Scripting (XSS)
+
 - Use `json_escape` when passing variables to JavaScript, or better yet, a library like [Gon](https://github.com/gazay/gon)
 
   ```erb
@@ -87,9 +137,15 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   </script>
   ```
 
+  **Why:** To prevent cross-site scripting (XSS)
+
 - [Be careful](https://product.reverb.com/2015/08/29/stay-safe-while-using-html_safe-in-rails/) with `html_safe`
 
+  **Why:** It bypasses escaping
+
 - Don’t use assets from a public CDN, as this creates unnecessary availability and security risk
+
+  **Why:** This adds another attack vector for an attacker
 
 ## Open Source Tools
 

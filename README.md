@@ -75,7 +75,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   **Why:** You don’t want sensitive data in your log files if they are compromised
 
-### Auth
+### Authentication
 
 - Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://ankane.org/hardening-devise) if applicable)
 
@@ -89,13 +89,13 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   **Why:** So users can’t silently hijack the account by changing the email, then the password
 
-- Rate limit login attempts with [Rack Attack](https://github.com/kickstarter/rack-attack)
+- Rate limit login attempts by IP with [Rack Attack](https://github.com/kickstarter/rack-attack)
 
-  **Why:** To slow down credential stuffing attacks
+  **Why:** To slow down [credential stuffing](https://en.wikipedia.org/wiki/Credential_stuffing) attacks
 
 - Log all successful and failed login attempts and password reset attempts (check out [Authtrail](https://github.com/ankane/authtrail) if you use Devise)
 
-  **Why:** So you have an audit trail when accounts are compromised. You can also use it to take action.
+  **Why:** So you have an audit trail when accounts are compromised. You can also use this information to detect compromised accounts.
 
 - Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)
 

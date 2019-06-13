@@ -47,7 +47,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   config.force_ssl = true
   ```
 
-  **Why:** So attackers can’t steal data or modify pages
+  **Why:** So attackers can’t eavesdrop or modify pages
 
 - Add your domain to the [HSTS Preload List](https://hstspreload.org/)
 

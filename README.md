@@ -47,7 +47,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   config.force_ssl = true
   ```
 
-  **Why:** To [protect your users](https://www.troyhunt.com/heres-why-your-static-website-needs-https/) on an untrusted network
+  **Why:** So attackers can’t steal data or modify pages
 
 - Add your domain to the [HSTS Preload List](https://hstspreload.org/)
 

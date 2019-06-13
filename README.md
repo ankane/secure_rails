@@ -73,6 +73,8 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   Rails.application.config.filter_parameters += [:credit_card_number]
   ```
 
+  Use [Logstop](https://github.com/ankane/logstop) as an additional line of defense
+
   **Why:** You don’t want sensitive data in your log files if they are compromised
 
 ### Authentication

@@ -59,7 +59,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
 ### Data at Rest
 
-- Protect sensitive database fields with application-level encryption - use a library like [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
+- Protect sensitive database fields with application-level encryption - use a library like [Lockbox](https://github.com/ankane/lockbox) or [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
 
   **Why:** This protects sensitive data if the database or a database backup is compromised
 

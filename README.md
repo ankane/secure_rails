@@ -83,6 +83,10 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   **Why:** Secure authentication is hard. Use a library that’s battle-tested. Don’t roll your own.
 
+- Notify users if their passwords are pawned by using a library like [pwned](https://github.com/philnash/pwned) or [devise-pwned_password](https://github.com/michaelbanfield/devise-pwned_password)
+
+  **Why:** To prevent users from using pawned passwords
+
 - Notify users of password changes
 
   **Why:** So users are aware if someone tries to hijack their account

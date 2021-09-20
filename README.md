@@ -112,7 +112,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 - Ask the browser [not to cache pages](https://stackoverflow.com/a/748646) with sensitive information
 
   ```ruby
-  response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+  response.headers["Cache-Control"] = "no-store, must-revalidate, private, max-age=0"
   response.headers["Pragma"] = "no-cache"
   response.headers["Expires"] = "Sat, 01 Jan 2000 00:00:00 GMT"
   ```

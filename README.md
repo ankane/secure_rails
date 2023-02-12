@@ -59,7 +59,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
 ### Data at Rest
 
-- Protect sensitive database fields with application-level encryption - use a library like [Lockbox](https://github.com/ankane/lockbox) or [attr_encrypted](https://github.com/attr-encrypted/attr_encrypted) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
+- Protect sensitive database fields with application-level encryption - use [Active Record Encryption](https://guides.rubyonrails.org/active_record_encryption.html) or a library like [Lockbox](https://github.com/ankane/lockbox) and possibly [KMS Encrypted](https://github.com/ankane/kms_encrypted)
 
   **Why:** This protects sensitive data if the database or a database backup is compromised
 
@@ -79,7 +79,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
 ### Authentication
 
-- Use a trusted library like [Devise](https://github.com/plataformatec/devise) for authentication (see [Hardening Devise](https://ankane.org/hardening-devise) if applicable)
+- Use a trusted library like [Devise](https://github.com/heartcombo/devise) for authentication (see [Hardening Devise](https://ankane.org/hardening-devise) if applicable)
 
   **Why:** Secure authentication is hard. Use a library that’s battle-tested. Don’t roll your own.
 
@@ -91,7 +91,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   **Why:** So users can’t silently hijack the account by changing the email, then the password
 
-- Rate limit login attempts by IP with [Rack Attack](https://github.com/kickstarter/rack-attack)
+- Rate limit login attempts by IP with [Rack Attack](https://github.com/rack/rack-attack)
 
   **Why:** To slow down [credential stuffing](https://en.wikipedia.org/wiki/Credential_stuffing) attacks
 
@@ -99,7 +99,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   **Why:** So you have an audit trail when accounts are compromised. You can also use this information to detect compromised accounts.
 
-- Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/elabs/pundit)
+- Rails has a number of gems for [authorization](https://www.ruby-toolbox.com/categories/rails_authorization) - we like [Pundit](https://github.com/varvet/pundit)
 
   **Why:** To prevent users from accessing unauthorized data
 
@@ -141,7 +141,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   **Why:** To prevent cross-site scripting (XSS)
 
-- [Be careful](https://product.reverb.com/2015/08/29/stay-safe-while-using-html_safe-in-rails/) with `html_safe`
+- [Be careful](https://product.reverb.com/stay-safe-while-using-html-safe-in-rails-9e368836fac1) with `html_safe`
 
   **Why:** It bypasses escaping
 
@@ -170,7 +170,7 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
   And run `bundle install`.
 
-- [npm audit](https://docs.npmjs.com/getting-started/running-a-security-audit) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
+- [npm audit](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
 - [git-secrets](https://github.com/awslabs/git-secrets) prevents you from committing sensitive info
 
   ```ruby
@@ -182,13 +182,12 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
 
 ## Mailing Lists
 
-Subscribe to [ruby-security-ann](https://groups.google.com/forum/#!forum/ruby-security-ann) to get security announcements for Ruby, Rails, Rubygems, Bundler, and other Ruby ecosystem projects.
+Subscribe to [ruby-security-ann](https://groups.google.com/g/ruby-security-ann) to get security announcements for Ruby, Rails, Rubygems, Bundler, and other Ruby ecosystem projects.
 
 ## Services
 
 - [Observatory](https://observatory.mozilla.org) scans your site for best practices
-- [Hakiri](https://hakiri.io/) monitors for dependency and code vulnerabilities
-- [CodeClimate](https://codeclimate.com/) provides a hosted version of static analysis
+- [Code Climate](https://codeclimate.com/) provides a hosted version of static analysis
 - [HackerOne](https://hackerone.com/) allows you to enlist hackers to surface vulnerabilities
 
 ## Additional Reading

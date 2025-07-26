@@ -159,7 +159,8 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   bundle audit check --update
   ```
 
-- [npm audit](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
+- [bin/importmap audit](https://github.com/rails/importmap-rails?tab=readme-ov-file#checking-for-outdated-or-vulnerable-packages) checks for vulnerable versions of JavaScript packages if you use import maps
+- [npm audit](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities) checks for vulnerable versions of JavaScript packages if you use `package.json`
 - [git-secrets](https://github.com/awslabs/git-secrets) prevents you from committing sensitive info
 
   ```ruby

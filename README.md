@@ -159,17 +159,6 @@ Also, check out [this guide](https://ankane.org/sensitive-data-rails) for securi
   bundle audit check --update
   ```
 
-  To fix `Insecure Source URI` issues with the `github` option, add to the top of your `Gemfile`:
-
-  ```ruby
-  git_source(:github) do |repo_name|
-    repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-    "https://github.com/#{repo_name}.git"
-  end
-  ```
-
-  And run `bundle install`.
-
 - [npm audit](https://docs.npmjs.com/auditing-package-dependencies-for-security-vulnerabilities) checks for vulnerable versions of JavaScript packages (if you use `package.json`)
 - [git-secrets](https://github.com/awslabs/git-secrets) prevents you from committing sensitive info
 
